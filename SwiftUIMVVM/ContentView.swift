@@ -20,7 +20,7 @@ import SwiftUI
 
 struct ContentView : View {
     
-   @StateObject var model: ArticleListViewModel = ArticleListViewModel()
+   @ObservedObject var model: ArticleListViewModel = ArticleListViewModel()
     
     var body: some View {
         
