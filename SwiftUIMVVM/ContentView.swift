@@ -20,7 +20,7 @@ import SwiftUI
 
 struct ContentView : View {
     
-   @StateObject var model: ArticleListViewModel = ArticleListViewModel()
+   @EnvironmentObject var model: ArticleListViewModel
     
     var body: some View {
         
@@ -40,7 +40,7 @@ struct ContentView : View {
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()//(model: ArticleListViewModel())
+        ContentView().environmentObject(ArticleListViewModel())
     }
 }
 
