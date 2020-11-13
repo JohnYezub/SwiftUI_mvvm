@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84360C32255EA39D002D0868 /* NewsWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84360C2C255EA32A002D0868 /* NewsWidgetEntryView.swift */; };
 		845CE439255E7CE600007E51 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845CE438255E7CE500007E51 /* WidgetKit.framework */; };
 		845CE43B255E7CE600007E51 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845CE43A255E7CE600007E51 /* SwiftUI.framework */; };
 		845CE43E255E7CE600007E51 /* NewsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE43D255E7CE600007E51 /* NewsWidget.swift */; };
@@ -28,6 +29,8 @@
 		849E9572255D3EAB00897A65 /* WebViewStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E9571255D3EAB00897A65 /* WebViewStateModel.swift */; };
 		849E9575255D3EC200897A65 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E9574255D3EC200897A65 /* WebView.swift */; };
 		849E9578255D3EE200897A65 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E9577255D3EE200897A65 /* WebViewWrapper.swift */; };
+		84DED73B255E80D800AD5ED9 /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED73A255E80D800AD5ED9 /* WidgetContent.swift */; };
+		84DED73C255E80D800AD5ED9 /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED73A255E80D800AD5ED9 /* WidgetContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		84360C2C255EA32A002D0868 /* NewsWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWidgetEntryView.swift; sourceTree = "<group>"; };
 		845CE436255E7CE500007E51 /* NewsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NewsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		845CE438255E7CE500007E51 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		845CE43A255E7CE600007E51 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -81,6 +85,7 @@
 		849E9571255D3EAB00897A65 /* WebViewStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewStateModel.swift; sourceTree = "<group>"; };
 		849E9574255D3EC200897A65 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		849E9577255D3EE200897A65 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
+		84DED73A255E80D800AD5ED9 /* WidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				845CE43D255E7CE600007E51 /* NewsWidget.swift */,
+				84DED73A255E80D800AD5ED9 /* WidgetContent.swift */,
+				84360C2C255EA32A002D0868 /* NewsWidgetEntryView.swift */,
 				845CE43F255E7CE900007E51 /* Assets.xcassets */,
 				845CE441255E7CE900007E51 /* Info.plist */,
 			);
@@ -301,6 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				845CE43E255E7CE600007E51 /* NewsWidget.swift in Sources */,
+				84360C32255EA39D002D0868 /* NewsWidgetEntryView.swift in Sources */,
+				84DED73C255E80D800AD5ED9 /* WidgetContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +322,7 @@
 				849E950F255BDEDF00897A65 /* AppDelegate.swift in Sources */,
 				849E9511255BDEDF00897A65 /* SceneDelegate.swift in Sources */,
 				849E9524255BDF1F00897A65 /* NetworkService.swift in Sources */,
+				84DED73B255E80D800AD5ED9 /* WidgetContent.swift in Sources */,
 				849E9572255D3EAB00897A65 /* WebViewStateModel.swift in Sources */,
 				849E952B255BDFAE00897A65 /* ArticleViewModel.swift in Sources */,
 				849E9538255C051C00897A65 /* NewsRow.swift in Sources */,

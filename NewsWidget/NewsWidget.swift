@@ -8,24 +8,28 @@
 import WidgetKit
 import SwiftUI
 
+
+
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(),title: "placeholder title", description: "placeholder description")
+    
+    func placeholder(in context: Context) -> WidgetContent {
+        WidgetContent(date: Date(),title: "Today News title", description: "This is news text. It contains the beginning of some news")
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(),title: "getSnapshot title", description: "getSnapshot description")
+    //data widget displays in widget gallery
+    func getSnapshot(in context: Context, completion: @escaping (WidgetContent) -> ()) {
+        let entry = WidgetContent(date: Date(),title: "Today News title", description: "This is news text. It contains the beginning of some news")
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
+        var entries: [WidgetContent] = []
+        guard let w = WidgetContent.readContents() else { return }
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, title: "title", description: "description")
+            let entry = WidgetContent(date: entryDate, title: w.title, description: w.description)
             entries.append(entry)
         }
 
@@ -34,24 +38,6 @@ struct Provider: TimelineProvider {
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let title: String
-    let description: String
-}
-
-struct NewsWidgetEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        VStack {
-            Text(entry.date, style: .time)
-            Text(entry.title)
-            Text(entry.description)
-        }
-        
-    }
-}
 
 @main
 struct NewsWidget: Widget {
@@ -68,7 +54,7 @@ struct NewsWidget: Widget {
 
 struct NewsWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NewsWidgetEntryView(entry: SimpleEntry(date: Date(), title: "test", description: "test"))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        NewsWidgetEntryView(entry: WidgetContent(date: Date(), title: "test title", description: "test description description description"))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
