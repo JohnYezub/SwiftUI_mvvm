@@ -20,7 +20,7 @@ struct NewsRow: View {
                         .font(.title2)
                     Spacer()
                     if article.image != nil {
-                    article.image
+                        Image(uiImage: article.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                     }

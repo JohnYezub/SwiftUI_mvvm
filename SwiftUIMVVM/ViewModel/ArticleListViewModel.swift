@@ -33,7 +33,11 @@ class ArticleListViewModel: ObservableObject {
         let article = articles[index]
         ImageStore.downloadImageBy(url: article.urlToImage) {
             self.articles[index].image = $0
+            if self.articles[0].image != nil, index == 0 {
+            WidgetContent.writeImage(image: self.articles[0].image)
+            }
             self.imagesData(index + 1)
         }
+        
     }
 }

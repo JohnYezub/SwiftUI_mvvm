@@ -53,14 +53,15 @@ final class ImageStore {
 //        return Image(images.values[index], scale: CGFloat(ImageStore.scale), label: Text(name))
 //    }
 //
-    static func downloadImageBy(url: String, completion: @escaping (Image)->Void) {
+    static func downloadImageBy(url: String, completion: @escaping (UIImage)->Void) {
         
         guard let url = URL(string: url) else { return }
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data, error == nil {
-            let image = UIImage(data: data)
+                if let image = UIImage(data: data) {
                 DispatchQueue.main.async {
-                    completion(Image(uiImage: image!))
+                    completion(image)
+                }
                 }
             }
         }

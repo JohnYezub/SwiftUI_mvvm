@@ -44,6 +44,7 @@ struct NewsWidget: Widget {
     let kind: String = "NewsWidget"
 
     var body: some WidgetConfiguration {
+        
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             NewsWidgetEntryView(entry: entry)
         }

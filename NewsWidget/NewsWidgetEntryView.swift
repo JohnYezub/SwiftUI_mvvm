@@ -10,8 +10,10 @@ import SwiftUI
 // View of widget
 struct NewsWidgetEntryView : View {
    // var entry: Provider.Entry
+    
+    //@ObservedObject var someImage: WidgetImage = WidgetImage()
     var entry: WidgetContent
-    //let model: WidgetContent
+    
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
         switch widgetFamily {
@@ -23,31 +25,26 @@ struct NewsWidgetEntryView : View {
             }
             .padding()
             
-        case .systemMedium:
-            VStack {
-                Text(entry.title)
-                    .font(.title3)
-                    .lineLimit(nil)
-                    .padding(.bottom, 10)
-                Text(entry.description)
-                    .foregroundColor(.secondary)
-                    .font(.subheadline)
-                    .lineLimit(nil)
-            }
-            .padding()
-            
         default:
             VStack {
-                Text(entry.title)
-                    .font(.title3)
-                    .lineLimit(nil)
-                    .padding(.bottom, 10)
+                HStack {
+                    Text(entry.title)
+                        .font(.title3)
+                        .lineLimit(nil)
+                        .padding(.bottom, 10)
+                   
+                   // someImage.widgetimage
+                        Image("newspic")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
                 Text(entry.description)
                     .foregroundColor(.secondary)
                     .font(.subheadline)
                     .lineLimit(nil)
             }
             .padding()
+        
         }
         
     }

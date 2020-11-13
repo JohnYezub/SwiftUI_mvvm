@@ -37,7 +37,7 @@ struct ArticleViewModel: Identifiable {
         return self.article.url
     }
     
-    var image: Image!
+    var image: UIImage!
     
     var publishedAt: String? {
         //2020-11-11T21:04:00Z
