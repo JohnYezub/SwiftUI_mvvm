@@ -21,8 +21,11 @@ class ArticleListViewModel: ObservableObject {
         NetworkService.loadData() { articles in
             if let articles = articles {
                 self.articles = articles.map(ArticleViewModel.init)
+                let widgetContent = articles.map { (article) in
+                    WidgetContent(title: article.title, description: article.description ?? "")
+                }
                 self.imagesData()
-                let widgetContent = WidgetContent(date: Date(), title: articles[0].title, description: articles[0].description ?? "")
+//                let widgetContent = WidgetContent(date: Date(), title: articles[0].title, description: articles[0].description ?? "")
                 WidgetContent.writeContents(widgetContent: widgetContent)
             }
         }

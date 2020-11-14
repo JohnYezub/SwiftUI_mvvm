@@ -24,12 +24,12 @@ struct Provider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [WidgetContent] = []
-        guard let w = WidgetContent.readContents() else { return }
+        let w = WidgetContent.readContents()
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = WidgetContent(date: entryDate, title: w.title, description: w.description)
+            let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset, to: currentDate)!
+            let entry = WidgetContent(date: entryDate, title: w[hourOffset].title, description: w[hourOffset].description)
             entries.append(entry)
         }
 
@@ -48,8 +48,8 @@ struct NewsWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             NewsWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("News Widget")
+        .description("This is an example of news widget.")
     }
 }
 

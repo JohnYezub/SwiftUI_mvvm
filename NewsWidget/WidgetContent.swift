@@ -49,7 +49,7 @@ extension WidgetContent {
         return nil
     }
         
-   static func writeContents(widgetContent: WidgetContent) {
+    static func writeContents(widgetContent: [WidgetContent]) {
         if let archiveURL = FileManager.sharedContainerURL() {
            let url = archiveURL.appendingPathComponent("contents")
             print("writeContents: \(url)")
@@ -66,19 +66,19 @@ extension WidgetContent {
         }
     }
     
-   static func readContents() -> WidgetContent? {
+   static func readContents() -> [WidgetContent] {
         if let archiveURL = FileManager.sharedContainerURL() {
         let url = archiveURL.appendingPathComponent("contents")
         let decoder = PropertyListDecoder()
         do {
             let data = try Data(contentsOf: url)
-            return try decoder.decode(WidgetContent.self, from: data)
+            return try decoder.decode([WidgetContent].self, from: data)
         } catch {
             print(error)
             print(error.localizedDescription)
         }
         }
-        return nil
+        return []
     }
 }
 
