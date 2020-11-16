@@ -8,6 +8,9 @@ import Foundation
 import Combine
 import SwiftUI
 
+//init this model by fetchData()
+
+
 class ArticleListViewModel: ObservableObject {
     
     @Published var articles = [ArticleViewModel]()
