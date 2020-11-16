@@ -9,10 +9,9 @@ import SwiftUI
 
 // View of widget
 struct NewsWidgetEntryView : View {
-   // var entry: Provider.Entry
+    //var entry: Provider.Entry
     
-    //@ObservedObject var someImage: WidgetImage = WidgetImage()
-    var entry: WidgetContent
+    var entry: NewsWidgetContent
     
     @Environment(\.widgetFamily) var widgetFamily
     var body: some View {
@@ -33,10 +32,16 @@ struct NewsWidgetEntryView : View {
                         .lineLimit(nil)
                         .padding(.bottom, 10)
                    
-                   // someImage.widgetimage
+
+                    if entry.image != nil {
+                        Image(uiImage: entry.image!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    } else {
                         Image("newspic")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                    }
                 }
                 Text(entry.description)
                     .foregroundColor(.secondary)
@@ -55,7 +60,7 @@ struct NewsWidgetEntryView : View {
 
 struct NewsWidgetEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        let entry = WidgetContent(title: "News Title", description: "Text text text text text text...")
+        let entry = NewsWidgetContent(date: Date(), title: "News Title", description: "Text text text text text text...")
         NewsWidgetEntryView(entry: entry)
     }
 }

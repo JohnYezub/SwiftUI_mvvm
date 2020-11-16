@@ -7,7 +7,9 @@
 
 import Foundation
 import SwiftUI
+
 //ViewModel conforms to the Identifiable protocol since it has to supply data to the List. The List uses the id property to make sure that the contents of the list are unique
+
 struct ArticleViewModel: Identifiable {
     
     let id = UUID()

@@ -10,6 +10,7 @@ import SwiftUI
 struct NewsRow: View {
    
     var article: ArticleViewModel
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {

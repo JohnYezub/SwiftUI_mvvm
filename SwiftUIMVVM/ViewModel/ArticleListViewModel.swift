@@ -25,7 +25,6 @@ class ArticleListViewModel: ObservableObject {
                     WidgetContent(title: article.title, description: article.description ?? "")
                 }
                 self.imagesData()
-//                let widgetContent = WidgetContent(date: Date(), title: articles[0].title, description: articles[0].description ?? "")
                 WidgetContent.writeContents(widgetContent: widgetContent)
             }
         }
